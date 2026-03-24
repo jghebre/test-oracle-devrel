@@ -40,4 +40,8 @@ jobs:
       - name: print env variable
         run: |
           env
+
+      - name: get github token
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }}
         
