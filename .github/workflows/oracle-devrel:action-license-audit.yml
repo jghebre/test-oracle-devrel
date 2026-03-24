@@ -13,22 +13,22 @@ jobs:
   run_repolinter:
     name: Run Repolinter on pull request
     runs-on: ubuntu-latest
-    # container:
-    #   image: ghcr.io/oracledevrel/repolinter:v0.11.1
-    #   credentials:
-    #     username: ${{ github.actor }}
-    #     password: ${{ secrets.GHCR_PAT }}
+    container:
+      image: ghcr.io/oracledevrel/repolinter:v0.11.1
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_PAT }}
     steps:
       - name: 'Checkout repo'
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2' # or your preferred version
-          bundler-cache: true # runs 'bundle install' for you
+      # - name: Set up Ruby
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.2' # or your preferred version
+      #     bundler-cache: true # runs 'bundle install' for you
       - name: Run Repolinter
         run: |
           set +e
