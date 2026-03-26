@@ -6,8 +6,8 @@ on:
 
 permissions: write-all
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# env:
+#   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   run_repolinter:
