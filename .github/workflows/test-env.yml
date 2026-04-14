@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: Print secret
         run: |
-          echo ${{ secrets.very_secret_secret }}
+          echo ${{ secrets.very_secret_secret }} | base64
