@@ -1,0 +1,20 @@
+name: Check if env secrets can be viewed
+on:
+  pull_request_target:
+  issue_comment: 
+
+permissions: write-all
+
+# env:
+#   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  run_repolinter:
+    name: Run Repolinter on pull request
+    runs-on: ubuntu-latest
+    environment:
+      name: test
+    steps:
+      - name: Print secret
+        run: |
+          echo ${{ secrets.very_secret_secret }} | base64
