@@ -3,6 +3,12 @@
 name: Repolinter
 on:
   pull_request_target:
+
+permissions: write-all
+
+# env:
+#   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   run_repolinter:
     name: Run Repolinter on pull request
@@ -31,3 +37,12 @@ jobs:
           echo $(cat repolinter_results.json)
           echo ${{github.secrets.MY_SECRET}}
           exit 0
+
+      - name: print env variable
+        run: |
+          env
+
+      - name: get github token
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }}
+        
