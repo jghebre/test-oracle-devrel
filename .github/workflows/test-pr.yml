@@ -1,0 +1,20 @@
+
+name: Repolinter
+on:
+  pull_request:
+
+permissions: write-all
+
+jobs:
+  run_repolinter:
+    name: Run Repolinter on pull request
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: print env variable
+        run: |
+          env
+
+      - name: get github token
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }}
